@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>MainWindow</title>
+</head>
+<body>
+<h1>MainWindow</h1>
+<button type="button" id="openButton">Open sub Window</button>
+<button type="button" id="closeButton">Close sub Window</button>
+<script>
+	let subwin;
+	const $openBtn = document.getElementById('openButton');
+	const $closeBtn = document.getElementById('closeButton');
+	$openBtn.addEventListener('click', (e) => {
+		e.preventDefault();
+		subwin = window.open('./sub.html', 'subwindow', 'width=640,height=640');
+		console.log(subwin);
+	});
+	$closeBtn.addEventListener('click', (e) => {
+		e.preventDefault();
+		if (subwin === undefined || subwin.closed) {
+			alert('There is not any sub window.');
+			return;
+		}
+		subwin.close();
+	});
+</script>
+</body>
+</html>

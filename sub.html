@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>SubWindow</title>
+</head>
+<body>
+<h1>SubWindow</h1>
+<button type="button" id="button">Alert Of Main Window</button>
+<script>
+	let mainWin = window.opener;
+	mainWin.console.log(document.title);
+	
+	const $btn = document.querySelector('#button');
+	$btn.addEventListener('click', (e) => {
+		e.preventDefault();
+		mainWin.alert(mainWin.location.href);
+	});
+</script>
+</body>
+</html>
